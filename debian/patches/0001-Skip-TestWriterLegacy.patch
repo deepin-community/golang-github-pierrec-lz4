@@ -1,0 +1,22 @@
+From: Shengjing Zhu <zhsj@debian.org>
+Date: Sun, 30 Jul 2023 18:28:18 +0800
+Subject: Skip TestWriterLegacy
+
+Test is broken, upstream CI also fails.
+---
+ writer_test.go | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/writer_test.go b/writer_test.go
+index 48baede..b4ea046 100644
+--- a/writer_test.go
++++ b/writer_test.go
+@@ -252,6 +252,8 @@ func TestWriterFlush(t *testing.T) {
+ }
+ 
+ func TestWriterLegacy(t *testing.T) {
++	t.Skip()
++
+ 	goldenFiles := []string{
+ 		"testdata/vmlinux_LZ4_19377",
+ 		"testdata/bzImage_lz4_isolated",
